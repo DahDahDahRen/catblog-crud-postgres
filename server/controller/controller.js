@@ -22,7 +22,7 @@ const createCatBlogController = async (req, res) => {
     [title, body]
   );
 
-  res.status(202).json(createResObj(true, 202, catBlog.rows));
+  res.status(202).json(createResObj(true, 202, catBlog.rows[0]));
 };
 
 // UPDATE Controller
@@ -55,7 +55,7 @@ const deleteCatBlogController = async (req, res) => {
     [id]
   );
 
-  res.status(202).json(createResObj(true, 202, catBlog.rows));
+  res.status(202).json(createResObj(true, 202, catBlog.rows[0]));
 };
 
 module.exports = {
