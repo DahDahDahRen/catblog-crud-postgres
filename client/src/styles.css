@@ -1,0 +1,67 @@
+@import "../node_modules/picnic/picnic.min.css";
+
+body {
+  line-height: 175%;
+}
+
+ul {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-item_control {
+  display: flex;
+  gap: 8px;
+}
+
+.container {
+  width: 420px;
+  margin: 0 auto;
+}
+
+.form-container {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.form-control {
+  display: flex;
+  justify-content: end;
+}
+
+.form-input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.h3 {
+  font-size: 24px;
+  line-height: 125%;
+}
+
+.resource-card {
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.default-msg_container {
+  text-align: center;
+  font-size: 28px;
+  line-height: 125%;
+}
+
+.update-header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}

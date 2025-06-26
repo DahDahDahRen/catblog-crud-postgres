@@ -4,10 +4,28 @@ const createResObj = require("../utils/resBuilder");
 // GET Route controller
 const getCatBlogsController = async (req, res) => {
   const catBlogs = await pool.query(`
-    SELECT * from catblogs
+    SELECT * FROM catblogs;
     `);
 
   res.status(202).json(createResObj(true, 202, catBlogs.rows));
+};
+
+// GET One blog controller
+const getCatBlogController = async (req, res) => {
+  const { id } = req.params;
+
+  console.log(id);
+
+  const catBlog = await pool.query(
+    `
+    SELECT * FROM catblogs WHERE id = $1
+    `,
+    [id]
+  );
+
+  console.log(catBlog);
+
+  res.status(202).json(createResObj(true, 202, catBlog.rows[0]));
 };
 
 // CREATE Route controller
@@ -17,7 +35,7 @@ const createCatBlogController = async (req, res) => {
   const catBlog = await pool.query(
     `
           INSERT INTO catblogs (title, body) VALUES ($1, $2)
-              RETURNING *
+              RETURNING *;
       `,
     [title, body]
   );
@@ -35,7 +53,7 @@ const updateCatBlogController = async (req, res) => {
         UPDATE catblogs SET
             title = $1,
             body = $2
-        WHERE id = $3 RETURNING *
+        WHERE id = $3 RETURNING *;
     `,
     [title, body, id]
   );
@@ -60,6 +78,7 @@ const deleteCatBlogController = async (req, res) => {
 
 module.exports = {
   getCatBlogsController,
+  getCatBlogController,
   createCatBlogController,
   updateCatBlogController,
   deleteCatBlogController,

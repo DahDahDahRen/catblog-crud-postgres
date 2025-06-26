@@ -1,6 +1,7 @@
 const express = require("express");
 const {
   getCatBlogsController,
+  getCatBlogController,
   createCatBlogController,
   updateCatBlogController,
   deleteCatBlogController,
@@ -9,6 +10,9 @@ const router = express.Router();
 
 // GET
 router.get("/", getCatBlogsController);
+
+// GET One Blog
+router.get("/:id", getCatBlogController);
 
 // POST Route
 router.post("/", createCatBlogController);
