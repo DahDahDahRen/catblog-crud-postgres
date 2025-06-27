@@ -55,6 +55,23 @@ const useBlogStore = create((set) => ({
       blogs: prevState.blogs.filter((blog) => blog.id !== payload.id),
     }));
   },
+
+  //Update blog
+  updateBlog: async (id, updatedPayload) => {
+    const res = await fetch(`http://localhost:3000/api/v1/cats/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedPayload),
+    });
+
+    const { payload } = await res.json();
+
+    set((prevState) => ({
+      blogs: prevState.blogs.map((blog) => (id === blog.id ? payload : blog)),
+    }));
+  },
 }));
 
 export default useBlogStore;

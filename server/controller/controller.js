@@ -23,8 +23,6 @@ const getCatBlogController = async (req, res) => {
     [id]
   );
 
-  console.log(catBlog);
-
   res.status(202).json(createResObj(true, 202, catBlog.rows[0]));
 };
 
